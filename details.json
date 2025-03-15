@@ -1,0 +1,75 @@
+{
+    "doctors": [
+      {
+        "name": "Dr. Rajesh Khanna",
+        "specialization": "Orthopedic Surgeon",
+        "rating": 4.8,
+        "charge": 800,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Doctor_Portrait.jpg/640px-Doctor_Portrait.jpg"
+      },
+      {
+        "name": "Dr. Priya Sharma",
+        "specialization": "Orthopedic Consultant",
+        "rating": 4.7,
+        "charge": 750,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Doctor_smiling.jpg/640px-Doctor_smiling.jpg"
+      },
+      {
+        "name": "Dr. Arvind Kumar",
+        "specialization": "Orthopedic Specialist",
+        "rating": 4.6,
+        "charge": 700,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Portrait_of_a_Doctor.jpg/640px-Portrait_of_a_Doctor.jpg"
+      },
+      {
+        "name": "Dr. Meena Reddy",
+        "specialization": "Pediatric Orthopedic Surgeon",
+        "rating": 4.9,
+        "charge": 900,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Doctor_Portrait_2.jpg/640px-Doctor_Portrait_2.jpg"
+      },
+      {
+        "name": "Dr. Vikram Desai",
+        "specialization": "Sports Injury Specialist",
+        "rating": 4.8,
+        "charge": 850,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Doctor_Male.jpg/640px-Doctor_Male.jpg"
+      },
+      {
+        "name": "Dr. Anjali Patel",
+        "specialization": "Joint Replacement Specialist",
+        "rating": 4.7,
+        "charge": 780,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Female_Doctor_Smiling.jpg/640px-Female_Doctor_Smiling.jpg"
+      },
+      {
+        "name": "Dr. Suresh Iyer",
+        "specialization": "Trauma and Fracture Care",
+        "rating": 4.6,
+        "charge": 720,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Doctor_Smiling.jpg/640px-Doctor_Smiling.jpg"
+      },
+      {
+        "name": "Dr. Nisha Verma",
+        "specialization": "Spine and Back Pain Specialist",
+        "rating": 4.9,
+        "charge": 880,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Female_Doctor.jpg/640px-Female_Doctor.jpg"
+      },
+      {
+        "name": "Dr. Manish Gupta",
+        "specialization": "Hip and Knee Specialist",
+        "rating": 4.8,
+        "charge": 830,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Doctor_Portrait_Smiling.jpg/640px-Doctor_Portrait_Smiling.jpg"
+      },
+      {
+        "name": "Dr. Reema Joshi",
+        "specialization": "Orthopedic Rehabilitation",
+        "rating": 4.7,
+        "charge": 760,
+        "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Doctor_Smiling_2.jpg/640px-Doctor_Smiling_2.jpg"
+      }
+    ]
+  }
+  
