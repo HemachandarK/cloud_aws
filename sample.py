@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import cv2
+import tensorflow
 import google.generativeai as genai
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.resnet50 import preprocess_input
