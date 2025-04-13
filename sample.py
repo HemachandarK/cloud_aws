@@ -6,11 +6,6 @@ import google.generativeai as genai
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from PIL import Image
-import os
-import json
-from gtts import gTTS
-import tempfile
-import base64
 
 # Set up Gemini API (Replace with your actual API key)
 GEMINI_API_KEY = "AIzaSyDD0BzkWZhyylV-l6euP8s3shySnkPPnug"
@@ -40,12 +35,6 @@ shoulder_model = load_shoulder_model()
 body_part_labels = ["Elbow", "Hand", "Shoulder"]
 fracture_labels = ["Fractured", "Normal"]
 
-# Load Doctor Details
-def load_doctor_data():
-    with open("details.json", "r") as file:
-        return json.load(file)
-
-doctor_data = load_doctor_data()
 
 # Session state initialization
 if "page" not in st.session_state:
@@ -111,15 +100,6 @@ def query_gemini(user_query, fracture_info, age, lang):
     response = genai.GenerativeModel("gemini-1.5-flash").generate_content(prompt)
     return response.text if response else "Sorry, I couldn't process your request."
 
-def text_to_speech(text, lang_code):
-    try:
-        tts = gTTS(text=text, lang=lang_code)
-    except:
-        tts = gTTS(text=text, lang="en")  # Default to English if language is unsupported
-    
-    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".mp3")
-    tts.save(temp_file.name)
-    return temp_file.name
 
 def home_page():
     st.title("Bone Fracture Detection Chatbot 🤖")
@@ -158,39 +138,13 @@ def home_page():
                 }
                 response = query_gemini(user_query, fracture_info, age, language)
                 st.write(f"🗨 Bot: {response}")
-
-                # Play audio response in Streamlit
-                audio_file = text_to_speech(response, "en")
-                st.audio(audio_file, format="audio/mp3")
         
         else:
             st.success("✅ No Fracture Detected.")
 
-    if st.button("📞 Connect to Doctor"):
-        st.session_state["page"] = "doctors"
-        st.rerun()
-
-def doctor_page():
-    st.title("Available Doctors 👨‍⚕️👩‍⚕️")
-
-    for doctor in doctor_data["doctors"]:
-        st.subheader(doctor["name"])
-        st.write(f"**Specialization:** {doctor['specialization']}")
-        st.write(f"**Rating:** ⭐ {doctor['rating']}/5")
-        st.write(f"**Consultation Fee:** ₹{doctor['charge']}")
-
-        if st.button(f"Connect with {doctor['name']}"):
-            st.success("✅ The doctor will contact you shortly!")
-
-    if st.button("⬅ Back to Home"):
-        st.session_state["page"] = "home"
-        st.rerun()
-
 def main():
     if st.session_state["page"] == "home":
         home_page()
-    elif st.session_state["page"] == "doctors":
-        doctor_page()
 
 if __name__ == "__main__":
     main()
