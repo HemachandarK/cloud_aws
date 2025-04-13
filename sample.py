@@ -6,6 +6,10 @@ import google.generativeai as genai
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from PIL import Image
+import os
+os.system("pip uninstall -y opencv-python opencv-python-headless")
+os.system("pip install opencv-python-headless==4.9.0.80")
+
 
 # Set up Gemini API (Replace with your actual API key)
 GEMINI_API_KEY = "AIzaSyDD0BzkWZhyylV-l6euP8s3shySnkPPnug"
