@@ -1,5 +1,4 @@
 import streamlit as st
-import tensorflow as tf
 import numpy as np
 import cv2
 import google.generativeai as genai
@@ -102,7 +101,7 @@ def query_gemini(user_query, fracture_info, age, lang):
 
 
 def home_page():
-    st.title("Bone Fracture Detection Chatbot 🤖")
+    st.title("XrayGuard: AI-Powered Fracture Detection")
     uploaded_file = st.file_uploader("Upload an X-ray Image", type=["jpg", "png", "jpeg"])
 
     if uploaded_file is not None:
