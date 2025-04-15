@@ -43,7 +43,7 @@ fracture_labels = ["Fractured", "Normal"]
 
 @st.cache_resource
 def load_doctor_data():
-    with open("details.json", "r") as file:
+    with open("https://demovijay.s3.us-east-1.amazonaws.com/details.json", "r") as file:
         return json.load(file)
 
 doctor_data = load_doctor_data()
