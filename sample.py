@@ -40,6 +40,12 @@ shoulder_model = load_shoulder_model()
 body_part_labels = ["Elbow", "Hand", "Shoulder"]
 fracture_labels = ["Fractured", "Normal"]
 
+@st.cache_resource
+def load_doctor_data():
+    with open("details.json", "r") as file:
+        return json.load(file)
+
+doctor_data = load_doctor_data()
 
 # Session state initialization
 if "page" not in st.session_state:
@@ -147,9 +153,27 @@ def home_page():
         else:
             st.success("✅ No Fracture Detected.")
 
+def doctor_page():
+    st.title("Available Doctors ")
+
+    for doctor in doctor_data["doctors"]:
+        st.subheader(doctor["name"])
+        st.write(f"**Specialization:** {doctor['specialization']}")
+        st.write(f"**Rating:**  {doctor['rating']}/5")
+        st.write(f"**Consultation Fee:** ₹{doctor['charge']}")
+
+        if st.button(f"Connect with {doctor['name']}"):
+            st.success(" The doctor will contact you shortly!")
+
+    if st.button("⬅ Back to Home"):
+        st.session_state["page"] = "home"
+        st.rerun()
+
 def main():
     if st.session_state["page"] == "home":
         home_page()
+    else:
+        doctor_page()
 
 if __name__ == "__main__":
     main()
