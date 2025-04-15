@@ -8,6 +8,7 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 from PIL import Image
 import os
 import json
+import requests
 
 os.system("pip uninstall -y opencv-python opencv-python-headless")
 os.system("pip install opencv-python-headless==4.9.0.80")
@@ -43,8 +44,9 @@ fracture_labels = ["Fractured", "Normal"]
 
 @st.cache_resource
 def load_doctor_data():
-    with open("https://demovijay.s3.us-east-1.amazonaws.com/details.json", "r") as file:
-        return json.load(file)
+    response = requests.get("https://demovijay.s3.us-east-1.amazonaws.com/details.json")
+    response.raise_for_status()  # Optional: raises error if status != 200
+    return response.json()
 
 doctor_data = load_doctor_data()
 
