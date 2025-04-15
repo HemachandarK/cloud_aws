@@ -25,10 +25,10 @@ def load_tflite_model(model_path):
 def load_all_models():
     with ThreadPoolExecutor() as executor:
         futures = {
-            'body_part': executor.submit(load_tflite_model, 'ResNet50_BodyParts.tflite'),
-            'hand': executor.submit(load_tflite_model, 'ResNet50_Hand_frac.tflite'),
-            'elbow': executor.submit(load_tflite_model, 'ResNet50_Elbow_frac.tflite'),
-            'shoulder': executor.submit(load_tflite_model, 'ResNet50_Shoulder_frac.tflite')
+            'body_part': executor.submit(load_tflite_model, 'ResNet50_BodyParts.h5'),
+            'hand': executor.submit(load_tflite_model, 'ResNet50_Hand_frac.h5'),
+            'elbow': executor.submit(load_tflite_model, 'ResNet50_Elbow_frac.h5'),
+            'shoulder': executor.submit(load_tflite_model, 'ResNet50_Shoulder_frac.h5')
         }
         return {key: future.result() for key, future in futures.items()}
 
