@@ -153,6 +153,9 @@ def home_page():
         
         else:
             st.success("✅ No Fracture Detected.")
+    if st.button("📞 Connect to Doctor"):
+        st.session_state["page"] = "doctors"
+        st.rerun()
 
 def doctor_page():
     st.title("Available Doctors ")
